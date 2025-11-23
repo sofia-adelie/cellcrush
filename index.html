@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CellCrush – Empowering patients, one world at a time</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-top: #fcecf9;
+      --bg-bottom: #fcecf9;
+      --card-bg: #fef9ff;
+      --text-main: #111111;
+      --text-muted: #333333;
+      --accent: #111111;
+      --radius: 26px;
+      --max-width: 840px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: left;
+      margin-bottom: 20px;
+    }
+
+    .logo-img {
+      width: 70%;
+      max-width: 350px;
+      height: auto;
+      margin: 0;
+      display: block;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, var(--bg-top), var(--bg-bottom));
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 40px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .subtitle span {
+      color: var(--accent);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px 22px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.97rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-top: 4px;
+    }
+
+    .card li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .demo-thumb {
+      display: inline-block;
+      margin-top: 8px;
+      border-radius: 20px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      background: #ffffffaa;
+      border: 2px solid #ffffffdd;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .demo-inner {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .demo-image {
+      width: 40%;
+      max-width: 220px;
+      border-radius: 16px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .demo-text-main {
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    .demo-text-sub {
+      font-size: 0.84rem;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .qr-wrapper {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qr-wrapper img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 18px;
+      background: #fff;
+      padding: 6px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .small-label {
+      font-size: 0.8rem;
+      color: #444;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px 28px;
+      }
+      .card {
+        padding: 18px 16px 16px;
+        border-radius: 22px;
+      }
+      .demo-inner {
+        padding: 10px 12px;
+        flex-direction: row;
+      }
+      .demo-image {
+        width: 45%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-wrapper">
+        <img
+          src="/images/cellcrush.png"
+          alt="CellCrush Logo"
+          class="logo-img"
+        />
+      </div>
+      <div class="subtitle">
+        Empowering patients – <span>one world at a time</span>
+      </div>
+    </header>
+
+    <!-- Mission card -->
+    <section class="card" id="mission">
+      <h2>Mission</h2>
+      <p>
+        XR is transforming how clinicians train and practice — but patients still
+        rely on pamphlets, diagrams, and long explanations to make sense of
+        complex treatments.
+      </p>
+      <p>
+        For many families, especially children, biology remains abstract and
+        frightening. Low health literacy leads to confusion, anxiety, and a
+        sense of powerlessness.
+      </p>
+      <p>
+        CellCrush exists to make the invisible world inside the body visible,
+        interactive, and empowering.
+      </p>
+    </section>
+
+    <!-- Concept card -->
+    <section class="card" id="concept">
+      <h2>Concept</h2>
+      <p>
+        CellCrush places patients inside a stylised bloodstream where they can
+        explore how their bodies work from the inside out. Through simple,
+        engaging interactions, players learn about cells, systems, and
+        biological processes in a way that reduces fear and improves
+        understanding.
+      </p>
+      <p>
+        The bloodstream is just the beginning. CellCrush is built as a scalable
+        XR universe that expands into other systems of the body, forming a
+        patient-centered platform for immersive health education.
+      </p>
+      <ul>
+        <li>Bloodstream – current prototype</li>
+        <li>Immune system – future module</li>
+        <li>Lungs, digestive system, brain – long-term roadmap</li>
+      </ul>
+    </section>
+
+    <!-- Demo video card -->
+    <section class="card" id="demo">
+      <h2>Demo video</h2>
+      <p>
+        See CellCrush in action with a short gameplay walkthrough. This video
+        shows how patients can move through the bloodstream, interact with
+        cells, and experience biology from a first-person perspective.
+      </p>
+
+      <a
+        class="demo-thumb"
+        href="https://www.youtube.com/watch?v=-bvmzzahSLI"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="demo-inner">
+          <img
+            src="/images/thumbnail.png"
+            alt="CellCrush gameplay thumbnail"
+            class="demo-image"
+          />
+          <div>
+            <div class="demo-text-main">Watch the CellCrush demo on YouTube</div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Collaboration card -->
+    <section class="card" id="collaboration">
+      <h2>Collaboration</h2>
+      <p>
+        We are looking for partners who want to explore how XR can improve
+        patient understanding and experience.
+      </p>
+      <ul>
+        <li>Pediatric hospitals and oncology units interested in pilot studies</li>
+        <li>Healthcare professionals willing to advise on clinical accuracy</li>
+        <li>Educators and science communicators</li>
+        <li>XR developers and industry collaborators</li>
+      </ul>
+      <p>
+        Interested in collaborating, piloting, or supporting CellCrush?
+        <br />
+        Email: <strong>your.email@example.com</strong><br />
+        LinkedIn / website: <strong>your-link-here</strong>
+      </p>
+    </section>
+  </div>
+</body>
+</html>
