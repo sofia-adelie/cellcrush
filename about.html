@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --card-bg: #ffffffcc;
+      --text-main: #111111;
+      --radius: 26px;
+      --max-width: 840px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-image: url("images/aboutus.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 150px 20px 40px;
+    }
+
+    .intro,
+    .card,
+    .section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 22px 22px 20px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      box-shadow: 0 14px 35px rgba(255, 254, 254, 0.65);
+      margin: 0 auto 32px;
+      max-width: 850px;
+      width: 100%;
+    }
+
+    .intro h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.9rem;
+    }
+
+    .info {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .info h2 {
+      margin: 0 0 6px;
+      font-size: 1.3rem;
+    }
+
+    .avatar {
+      flex: 0 0 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .tags {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .tags span {
+      display: inline-block;
+      background: #ccd8f5;
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin: 3px 6px 0 0;
+    }
+
+    .section h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    .button-row {
+      max-width: 850px;
+      margin: 8px auto 0;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #205673;
+      color: white;
+      padding: 14px 26px;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: 0.2s;
+      font-size: 1.05rem;
+      margin: 20px 0 40px;
+    }
+
+    .back-btn:hover {
+      background: #163d52;
+    }
+
+    /* ---------- Responsive tweaks ---------- */
+
+    /* Tablets / small laptops */
+    @media (max-width: 900px) {
+      body {
+        background-attachment: scroll; /* smoother on mobile browsers */
+      }
+
+      .container {
+        padding: 140px 16px 32px;
+      }
+
+      .intro,
+      .card,
+      .section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .avatar {
+        flex: 0 0 auto;
+      }
+    }
+
+    /* Phones */
+    @media (max-width: 600px) {
+      html {
+        height: 100%;
+        background-image: url("images/aboutus-mobile.png");
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed; /* background stays still */
+      }
+
+      body {
+        height: 100%;
+        overflow-y: auto;      /* content scrolls */
+        background: transparent;
+      }
+    
+      .container {
+        padding: 110px 12px 24px;
+      }
+
+      .intro,
+      .card,
+      .section {
+        padding: 18px 16px 16px;
+        gap: 18px;
+      }
+
+      .avatar img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .button-row {
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .back-btn {
+        margin: 24px 0 40px;
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="intro">
+      <div class="info">
+        <p>
+          We are two researchers and VR developers based at two different labs in Germany. 
+          We first began working together during a hackathon, where we quickly realized how naturally our skills 
+          and approaches complemented one another. What started as a short collaboration turned into a shared 
+          vision: using VR technologies to make medical concepts more intuitive, visual and emotionally engaging. 
+          <br>
+          Although we come from different labs in Germany, our backgrounds in computer science, mixed reality, 
+          medical applications and human–robot interaction give us a strong foundation for building experiences 
+          that go far beyond our individual research topics. Together, we explore new ways to teach, communicate 
+          and experience what happens inside the human body.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="avatar">
+        <img src="images/ana.png">
+      </div>
+      <div class="info">
+        <h2>Ana Sofia Santos</h2>
+        <p>
+          Ana is an associate researcher at the Institute for Artificial Intelligence in Medicine (IKIM), 
+          University of Duisburg-Essen, working at the intersection of VR technology, 
+          medical imaging and Digital Humans. She is building conversational virtual assistants 
+          powered by speech recognition, retrieval-augmented generation and real-time avatar 
+          animation to improve how patients and learners access medical information.
+        </p>
+        <div class="tags">
+          <span>XR &amp; VR development</span>
+          <span>Digital Humans</span>
+          <span>Medical Imaging</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="avatar">
+        <img src="images/kasia.png">
+      </div>
+      <div class="info">
+        <h2>Katarzyna Olszyńska</h2>
+        <p>
+          Katarzyna is an associate researcher at Otto-von-Guericke University
+          Magdeburg. She focuses on human–robot interaction, mixed reality
+          and interactive systems that support users in medical and
+          rehabilitation settings.
+        </p>
+        <div class="tags">
+          <span>VR development</span>
+          <span>Human Machine Interaction</span>
+          <span>Cognitive Science Researcher</span>
+          <span>Serious Games</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info">
+        <h3>Collaborative Work</h3>
+        <p>
+          We are currently collaborating on research-driven VR projects such as <strong>CellCrush</strong>. 
+          Our goal is to
+          design serious games that are scientifically grounded, emotionally engaging
+          and accessible to both healthcare professionals and patients.
+        </p>
+        <p>
+          Beyond this project, we are currently exploring game concepts like bloodstream navigation and
+          interactive visualizations of treatment mechanisms, so that we can scale our initial concept 
+          and provide users with immersive and educational games that can empower and provide 
+          health literacy.
+        </p>
+      </div>
+    </div>
+
+    <div class="button-row">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
