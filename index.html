@@ -22,26 +22,28 @@
         sans-serif;
     }
 
+    html,
     body {
+      height: 100%;
       margin: 0;
       background: #ffffff;
       color: #ffffff;
+      overflow-y: hidden; /* <-- no scrolling */
     }
 
     .page {
-      min-height: 100vh;
+      height: 100vh;              /* full viewport */
       display: flex;
-      flex-direction: column;
+      flex-direction: column;     /* hero on top, buttons bar at bottom */
     }
 
     /* HERO SECTION – DESKTOP DEFAULT */
     .hero {
-      height: auto;
-      min-height: 100vh; 
-      max-width: 100%;
-      background-image: url("images/background.png");
-      background-size: cover;
-      background-position: center;
+      flex: 1 1 auto;             /* take all remaining height above buttons */
+      width: 100%;
+      background-image: url("static/background-desktop.png");
+      background-size: contain;
+      background-position: center top;
       background-repeat: no-repeat;
       background-attachment: fixed;
       display: flex;
@@ -52,26 +54,14 @@
 
     .hero-inner {
       max-width: var(--max-width);
-      padding: 120px 24px 80px;
+      padding: 40px 24px;         /* kept small since you have no text here */
     }
 
-    .hero-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      margin-bottom: 14px;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1rem, 2.4vw, 1.3rem);
-      font-weight: 300;
-      margin-bottom: 10px;
-    }
-
-    /* BUTTON SECTION */
+    /* BUTTON STRIP AT BOTTOM */
     .buttons-section {
+      flex: 0 0 auto;
       background: #ffffff;
-      padding: 28px 16px 40px;
+      padding: 20px 16px 18px;    /* height of the white stripe */
     }
 
     .buttons-inner {
@@ -109,34 +99,31 @@
 
     /* Tablets & small laptops */
     @media (max-width: 900px) {
-      .hero-inner {
-        padding: 100px 20px 60px;
+      .hero {
+        background-attachment: scroll; /* smoother on some devices */
       }
     }
 
-    /* PHONES – use vertical image */
+    /* PHONES – use vertical image + full-width buttons */
     @media (max-width: 600px) {
       .hero {
-        background-image: url("images/background-mobile.png"); /* mobile image */
+        background-image: url("images/background-mobile.png");
         background-size: cover;
         background-position: center top;
-        background-attachment: scroll; /* iOS likes this better */
+        background-attachment: scroll;
       }
 
       .hero-inner {
-        padding: 60px 16px 32px;
-        background: rgba(0, 0, 0, 0.30);  /* darken behind text a bit */
-        border-radius: 18px;
-        margin: 16px;
+        padding: 20px 12px;
       }
 
       .buttons-section {
-        padding: 16px 0 24px;
+        padding: 20px 12px 18px;
       }
 
       .btn {
         width: 100%;
-        max-width: 320px; /* nice tap targets */
+        max-width: 320px;
       }
     }
   </style>
@@ -145,13 +132,14 @@
 <body>
   <div class="page">
 
-    <!-- HERO HEADER -->
+    <!-- HERO HEADER (background only) -->
     <section class="hero">
       <div class="hero-inner">
+        <!-- empty on purpose; background image carries the design -->
       </div>
     </section>
 
-    <!-- BUTTONS BELOW -->
+    <!-- BUTTON STRIP AT BOTTOM -->
     <section class="buttons-section">
       <div class="buttons-inner">
         <a class="btn" href="about.html">About us</a>
@@ -163,4 +151,3 @@
   </div>
 </body>
 </html>
-
