@@ -7,7 +7,6 @@
 
   <style>
     :root {
-      --primary-bg: #0b2d3a;
       --button-bg: #205673;
       --button-bg-hover: #163d52;
       --button-text: #ffffff;
@@ -25,24 +24,20 @@
 
     body {
       margin: 0;
-      background: #ffffff; /* remove the dark blue tile */
+      background: #ffffff;
       color: #ffffff;
     }
 
-    .hero {
-      min-height: 100vh;   /* ensures background image fills the screen */
-    }
-
-    /* Wrap everything so we can control full-height layout if needed */
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* HERO SECTION */
+    /* HERO SECTION – DESKTOP DEFAULT */
     .hero {
       height: auto;
+      min-height: 100vh; 
       max-width: 100%;
       background-image: url("images/background.png");
       background-size: cover;
@@ -61,7 +56,6 @@
     }
 
     .hero-title {
-      /* clamp(min, preferred, max) for fluid sizing */
       font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -113,10 +107,6 @@
       transform: translateY(0);
     }
 
-    /* ----------------------------- */
-    /* RESPONSIVE TWEAKS            */
-    /* ----------------------------- */
-
     /* Tablets & small laptops */
     @media (max-width: 900px) {
       .hero-inner {
@@ -124,24 +114,29 @@
       }
     }
 
-    /* Phones */
+    /* PHONES – use vertical image */
     @media (max-width: 600px) {
       .hero {
-        /* fixed backgrounds are glitchy on iOS, so relax it here */
-        background-attachment: scroll;
+        background-image: url("images/background-mobile.png"); /* mobile image */
+        background-size: cover;
+        background-position: center top;
+        background-attachment: scroll; /* iOS likes this better */
       }
 
       .hero-inner {
-        padding: 80px 16px 50px;
+        padding: 60px 16px 32px;
+        background: rgba(0, 0, 0, 0.30);  /* darken behind text a bit */
+        border-radius: 18px;
+        margin: 16px;
       }
 
       .buttons-section {
-        padding: 24px 12px 32px;
+        padding: 16px 0 24px;
       }
 
       .btn {
-        width: 100%;       /* buttons full-width for easy tapping */
-        max-width: 320px;
+        width: 100%;
+        max-width: 320px; /* nice tap targets */
       }
     }
   </style>
@@ -152,9 +147,11 @@
 
     <!-- HERO HEADER -->
     <section class="hero">
+      <div class="hero-inner">
+      </div>
     </section>
 
-    <!-- BUTTONS BELOW (scroll if needed) -->
+    <!-- BUTTONS BELOW -->
     <section class="buttons-section">
       <div class="buttons-inner">
         <a class="btn" href="about.html">About us</a>
@@ -166,3 +163,4 @@
   </div>
 </body>
 </html>
+
