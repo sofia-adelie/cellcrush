@@ -6,12 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-top: #fcecf9;
-      --bg-bottom: #fcecf9;
       --card-bg: #ffffffcc;
       --text-main: #111111;
       --text-muted: #333333;
-      --accent: #111111;
       --radius: 26px;
       --max-width: 840px;
     }
@@ -24,6 +21,7 @@
         sans-serif;
     }
 
+    /* DESKTOP / DEFAULT BACKGROUND */
     body {
       min-height: 100vh;
       margin: 0;
@@ -40,7 +38,7 @@
 
     .page {
       width: 100%;
-      max-width: var(--max-width);  
+      max-width: var(--max-width);
       margin-top: 150px;
     }
 
@@ -57,7 +55,7 @@
       border-radius: var(--radius);
       padding: 22px 22px 20px;
       margin-bottom: 20px;
-      box-shadow: 0 14px 35px rgba(255, 254, 254, 0.653);
+      box-shadow: 0 14px 35px rgba(255, 254, 254, 0.65);
       text-align: justify;
     }
 
@@ -148,62 +146,103 @@
       color: #444;
     }
 
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 12px 28px;
-      }
-      .card {
-        padding: 18px 16px 16px;
-        border-radius: 22px;
-      }
-      .demo-inner {
-        padding: 10px 12px;
-        flex-direction: row;
-      }
-      .demo-image {
-        width: 45%;
-      }
+    .button-row {
+      max-width: 850px;
+      margin: 8px auto 0;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .back-btn {
       display: inline-block;
-      margin-top: 40px;
       background: #205673;
       color: white;
       padding: 14px 26px;
       text-decoration: none;
       border-radius: 20px;
       transition: 0.2s;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      margin: 20px 0 40px;
+    }
+
+    /* TABLETS */
+    @media (max-width: 900px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .page {
+        margin-top: 120px;
+      }
+    }
+
+    /* PHONES – dedicated mobile background, scrollable content */
+    @media (max-width: 600px) {
+      html {
+        height: 100%;
+        background-image: url("images/cellcrush-mobile.png");
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed; /* background stays still */
+      }
+
+      body {
+        min-height: 100%;
+        padding: 20px 12px 28px;
+        background: transparent;      /* show html background */
+        overflow-y: auto;             /* content scrolls */
+      }
+
+      .page {
+        margin-top: 110px;
+      }
+
+      .card {
+        padding: 18px 16px 16px;
+        border-radius: 22px;
+      }
+
+      .demo-inner {
+        padding: 10px 12px;
+        flex-direction: row;
+      }
+
+      .demo-image {
+        width: 45%;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="content">
-    <div class="page">
+  <div class="page">
+
     <section class="card" id="concept">
-      <h2>💡 The concept of CellCrush </h2>
+      <h2>💡 The concept of CellCrush</h2>
       <p>
-        CellCrush was born during the <strong>XRAI Hackathon</strong> by <a href="https://sensaihack.com/">SenAI Hackademy</a> in Cologne, August 2025.
-        Our team works in XR development for healthcare and we keep noticing a persistent gap: XR technologies are transforming how medical professionals 
-        learn and train, however, patients are still left with pamphlets and explanations that feel abstract, overwhelming, or frightening. 
-        We wanted to change that.
+        <strong>CellCrush</strong> was born during the <strong>XRAI Hackathon</strong> by
+        <a href="https://sensaihack.com/" target="_blank">SenAI Hackademy</a> in Cologne, August 2025.
+        Our team works in XR development for healthcare and we keep noticing a persistent gap:
+        XR technologies are transforming how medical professionals learn and train, however, patients are still left with
+        pamphlets and explanations that feel abstract, overwhelming, or frightening. We wanted to change that.
       </p>
       <p>
         CellCrush began as an experiment in creating a VR experience for people facing complex diseases. The idea was simple:
-        <ul>
-          <li>What if patients could see what is happening inside their bodies?</li>
-          <li>What if they could feel like they were actively fighting back?</li>
-          <li>What if education could be playful, visual, and empowering instead of stressful?</li>
-        </ul>
+      </p>
+      <ul>
+        <li>What if patients could see what is happening inside their bodies?</li>
+        <li>What if they could feel like they were actively fighting back?</li>
+        <li>What if education could be playful, visual, and empowering instead of stressful?</li>
+      </ul>
+      <p>
+        The result was a game where players <strong>explore a stylised bloodstream, battle harmful cells and learn how
+        treatments work</strong> in a way that makes biology less intimidating.
+        While the concept started with patients in mind, we quickly realised it has value far beyond clinical settings.
       </p>
       <p>
-        The result was a game where players <strong> inside a stylised bloodstream, battle harmful cells and learn how treatments work</strong> in a way that makes biology less intimidating.
-        While the concept started with patients in mind, we quickly realised it has value far beyond clinical settings.
-      </p> 
-      <p>
-        Families, students and anyone curious about the human body can explore CellCrush together. It’s both a <strong>science game</strong> and an <strong>empowerment tool</strong> designed to make learning about health engaging, social and accessible for all.
+        Families, students and anyone curious about the human body can explore CellCrush together.
+        It’s both a <strong>science game</strong> and an <strong>empowerment tool</strong> designed to make learning
+        about health engaging, social and accessible for all.
       </p>
     </section>
 
@@ -225,37 +264,43 @@
     </section>
 
     <section class="card" id="mission">
-      <h2>🚀 Scalability & Vision for the Future</h2>
+      <h2>🚀 Scalability &amp; Vision for the Future</h2>
       <p>
-        CellCrush was designed from the very beginning as a <strong>modular and expandable VR experience</strong>. 
-        The bloodstream is only our starting point. Our goal is to grow CellCrush into a vibrant, interconnected 
+        CellCrush was designed from the very beginning as a <strong>modular and expandable VR experience</strong>.
+        The bloodstream is only our starting point. Our goal is to grow CellCrush into a vibrant, interconnected
         universe where users can <strong>explore</strong> how the human body works across <strong>multiple systems</strong>.
       </p>
       <p>
-        We are currently developing an expanded visual style and more immersive environments to make each “world inside the body” 
-        dynamic, colourful and scientifically meaningful. Future modules will allow players to <strong>follow oxygen molecules as they 
-        travel through the circulatory system</strong>, understand how <strong>wounds are repaired by platelets</strong>, see how <strong>immune 
-        cells respond to infection</strong>, or experience how <strong>insulin regulates blood glucose </strong>in conditions such as diabetes.
+        We are currently developing an expanded visual style and more immersive environments to make each “world inside the body”
+        dynamic, colourful and scientifically meaningful. Future modules will allow players to <strong>follow oxygen molecules as they
+        travel through the circulatory system</strong>, understand how <strong>wounds are repaired by platelets</strong>, see how
+        <strong>immune cells respond to infection</strong>, or experience how <strong>insulin regulates blood glucose</strong>
+        in conditions such as diabetes.
       </p>
       <p>
-        Each new world will build on the same core principles that shaped the original concept: clear science, interactive learning and a sense of agency.
+        Each new world will build on the same core principles that shaped the original concept: clear science, interactive learning
+        and a sense of agency.
       </p>
       <p>
-        By transforming complex physiology into playful, explorable environments, CellCrush aims to support patients in <strong>understanding their health</strong>, 
-        while providing <strong>engaging educational tools</strong> for families, students, and curious learners.
+        By transforming complex physiology into playful, explorable environments, CellCrush aims to support patients in
+        <strong>understanding their health</strong>, while providing <strong>engaging educational tools</strong> for families,
+        students and curious learners.
       </p>
       <p>
-        Our long-term vision is to create the <strong>first VR patient-education ecosystem</strong> where every major body system becomes a world to explore, 
-        compare and understand. As we expand, we aim to collaborate with professionals to ensure scientific accuracy, clinical relevance and meaningful real-world impact.
+        Our long-term vision is to create the <strong>first VR patient-education ecosystem</strong> where every major body system
+        becomes a world to explore, compare and understand. As we expand, we aim to collaborate with professionals to ensure
+        scientific accuracy, clinical relevance and meaningful real-world impact.
       </p>
       <p>
-        CellCrush is not just a game; it is the foundation of a future in which health literacy is immersive, accessible and empowering for everyone.
+        CellCrush is not just a game; it is the foundation of a future in which health literacy is immersive, accessible and
+        empowering for everyone.
       </p>
     </section>
-    <a href="index.html" class="back-btn">← Back to Home</a>
+
+    <div class="button-row">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+
   </div>
 </body>
 </html>
-
-
-
