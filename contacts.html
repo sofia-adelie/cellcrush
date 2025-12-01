@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-top: #fcecf9;
+      --bg-bottom: #fcecf9;
+      --card-bg: #ffffffcc;
+      --text-main: #111111;
+      --text-muted: #333333;
+      --accent: #111111;
+      --radius: 26px;
+      --max-width: 840px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("contacts.png"); /* use your wave bg */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .container {
+        max-width: 1000px;
+        width: 100%;
+        padding: 180px 20px 40px;   /* <-- add more space at the top */
+    }
+
+    .card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 22px 22px 20px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        box-shadow: 0 14px 35px rgba(255, 254, 254, 0.653);
+        margin: 0 auto 32px;      /* center + space under */
+        max-width: 850px;         /* <-- set your desired width here */
+        width: 100%;              /* keeps it responsive */
+    }
+
+
+    /* second card: image on the right */
+    .card:nth-child(2) {
+      flex-direction: row-reverse;
+    }
+
+    .avatar {
+      flex: 0 0 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .info {
+      flex: 1;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    .info strong {
+      font-weight: 700;
+    }
+
+    .label {
+      margin-top: 12px;
+      font-weight: 600;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      background: #205673;
+      color: white;
+      padding: 14px 26px;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: 0.2s;
+      font-size: 1.1rem;
+      margin-left: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .card,
+      .card:nth-child(2) {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .avatar {
+        flex: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Ana card -->
+    <div class="card">
+      <div class="avatar">
+        <img src="kasia.png">
+      </div>
+      <div class="info">
+        <p>
+            <strong>Katarzyna Olszyńska</strong> is an associate researcher at the Otto-von-Guericke, University Magdeburg, Germany. Her work involves mixed reality and human robotic interaction in the medical field.
+        </p>
+      <p>
+        <strong>Email:</strong> k.olszynska@gmail.com
+      </p>
+      <p>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/katarzyna-olszynska/">linkedin.com/in/katarzyna-olszynska</a>
+      </p> 
+      </div>
+    </div>
+
+    <!-- Katarzyna card -->
+    <div class="card">
+      <div class="avatar">
+        <img src="ana.png">
+      </div>
+      <div class="info">
+        <p>
+        <strong>Ana Sofia Santos</strong> is an associate researcher at the Institute for Artificial Intelligence in Medicine, University Hospital Essen, Germany. Her work involves development of XR applications for medical education.
+      </p>
+      <p>
+        <strong>Email:</strong> anasfsantos1203@gmail.com
+      </p>
+      <p>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ana-sofiafsantos">linkedin.com/in/ana-sofiafsantos</a>
+      </p>
+      </div>
+    </div>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+</body>
+</html>
