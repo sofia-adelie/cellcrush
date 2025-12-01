@@ -25,9 +25,14 @@
 
     body {
       margin: 0;
-      background: var(--primary-bg);
+      background: #ffffff; /* remove the dark blue tile */
       color: #ffffff;
     }
+
+.hero {
+  min-height: 100vh;   /* ensures background image fills the screen */
+}
+
 
     /* Wrap everything so we can control full-height layout if needed */
     .page {
@@ -38,6 +43,7 @@
 
     /* HERO SECTION */
     .hero {
+      min-height: 100vh;
       width: 100%;
       /* big background image */
       background-image: url("images/background.png");
@@ -146,6 +152,11 @@
 
 <body>
   <div class="page">
+
+    <!-- HERO HEADER -->
+    <section class="hero">
+    </section>
+
     <!-- BUTTONS BELOW (scroll if needed) -->
     <section class="buttons-section">
       <div class="buttons-inner">
