@@ -2,265 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title> Welcome to CellCrush </title>
+  <title>Immersive Healthcare Experiences</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg-top: #fcecf9;
-      --bg-bottom: #fcecf9;
-      --card-bg: #ffffffcc;
-      --text-main: #111111;
-      --text-muted: #333333;
-      --accent: #111111;
-      --radius: 26px;
-      --max-width: 840px;
-    }
 
-    * {
-      box-sizing: border-box;
+  <style>
+    body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, sans-serif;
+      color: #ffffff;
+      background: #0b2d3a;
+      overflow-x: hidden;
     }
 
-    /* -------------------------- */
-    /* FIXED BACKGROUND ADDED HERE */
-    /* -------------------------- */
-    body {
+    /* HERO SECTION */
+    .hero {
+      width: 100%;
       min-height: 100vh;
-      margin: 0;
-      padding: 32px 16px 40px;
-      display: flex;
-      justify-content: center;
-      color: var(--text-main);
-
-      /* new */
       background-image: url("images/background.png");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
     }
 
-    .page {
-      width: 100%;
-      max-width: var(--max-width);  
-      margin-top: 150px;
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
-    header {
-      margin-bottom: 32px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 22px 22px 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
-      text-align: justify;
-    }
-
-    .card h2 {
+    .hero h2 {
       font-size: 1.2rem;
-      margin-bottom: 10px;
+      font-weight: 300;
+      margin-bottom: 40px;
     }
 
-    .card p {
-      font-size: 0.97rem;
-      line-height: 1.55;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+    /* BUTTON SECTION */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding: 30px 20px;   /* reduced height */
+    background: white;
+  }
+
+
+  .btn {
+    background: #205673;
+    color: white;
+    padding: 24px 48px;     /* bigger button */
+    border-radius: 30px;    /* rounder */
+    font-size: 1.4rem;      /* larger text */
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s;
+    min-width: 220px;       /* ensures consistent size */
+    text-align: center;
+  }
+
+  .btn:hover {
+    background: #163d52;
+  }
+
+  @media (max-width: 30px) {
+    .buttons {
+      flex-direction: column;
+      gap: 30px;            /* spacing for mobile */
+      padding: 60px 20px;
     }
 
-    .card ul {
-      padding-left: 20px;
-      margin-top: 4px;
-    }
-
-    .card li {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .demo-thumb {
-      display: inline-block;
-      margin-top: 8px;
-      border-radius: 20px;
-      overflow: hidden;
-      text-decoration: none;
-      color: inherit;
-      background: #ffffffaa;
-      border: 2px solid #ffffffdd;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-      width: 100%;
-      max-width: 520px;
-    }
-
-    .demo-inner {
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .demo-image {
-      width: 40%;
-      max-width: 220px;
-      border-radius: 16px;
-      display: block;
-      object-fit: cover;
-    }
-
-    .demo-text-main {
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    .demo-text-sub {
-      font-size: 0.84rem;
-      color: #555;
-      margin-top: 2px;
-    }
-
-    .qr-wrapper {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .qr-wrapper img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 18px;
-      background: #fff;
-      padding: 6px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .small-label {
-      font-size: 0.8rem;
-      color: #444;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 12px 28px;
-      }
-      .card {
-        padding: 18px 16px 16px;
-        border-radius: 22px;
-      }
-      .demo-inner {
-        padding: 10px 12px;
-        flex-direction: row;
-      }
-      .demo-image {
-        width: 45%;
-      }
-    }
+  .btn {
+    width: 100%;          /* full width on mobile */
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <section class="card" id="concept">
-      <h2>💡 The concept of CellCrush </h2>
-      <p>
-        CellCrush was born during the <strong>XRAI Hackathon</strong> by <a href="https://sensaihack.com/">SenAI Hackademy</a> in Cologne, August 2025.
-        Our team works in XR development for healthcare and we keep noticing a persistent gap: XR technologies are transforming how medical professionals 
-        learn and train, however, patients are still left with pamphlets and explanations that feel abstract, overwhelming, or frightening. 
-        We wanted to change that.
-      </p>
-      <p>
-        CellCrush began as an experiment in creating a VR experience for people facing complex diseases. The idea was simple:
-        <ul>
-          <li>What if patients could see what is happening inside their bodies?</li>
-          <li>What if they could feel like they were actively fighting back?</li>
-          <li>What if education could be playful, visual, and empowering instead of stressful?</li>
-        </ul>
-      </p>
-      <p>
-        The result was a game where players <strong> inside a stylised bloodstream, battle harmful cells and learn how treatments work</strong> in a way that makes biology less intimidating.
-        While the concept started with patients in mind, we quickly realised it has value far beyond clinical settings.
-      </p> 
-      <p>
-        Families, students and anyone curious about the human body can explore CellCrush together. It’s both a <strong>science game</strong> and an <strong>empowerment tool</strong> designed to make learning about health engaging, social and accessible for all.
-      </p>
-    </section>
 
-    <section class="card" id="demo">
-      <h2>🎮 Take a look into CellCrush</h2>
-      <p>
-        See CellCrush in action with a short gameplay walkthrough. This video shows how users can
-        move through the bloodstream, interact with cells and experience biology from a first-person
-        perspective.
-      </p>
+  <!-- HERO HEADER -->
+  <div class="hero">
 
-      <a class="demo-thumb" href="https://www.youtube.com/watch?v=-bvmzzahSLI" target="_blank"
-         rel="noopener noreferrer">
-        <div class="demo-inner">
-          <img src="images/thumbnail.png" alt="CellCrush gameplay thumbnail" class="demo-image" />
-          <div class="demo-text-main">Watch the CellCrush demo on YouTube</div>
-        </div>
-      </a>
-    </section>
-
-    <section class="card" id="mission">
-      <h2>🚀 Scalability & Vision for the Future</h2>
-      <p>
-        CellCrush was designed from the very beginning as a <strong>modular and expandable VR experience</strong>. 
-        The bloodstream is only our starting point. Our goal is to grow CellCrush into a vibrant, interconnected 
-        universe where users can <strong>explore</strong> how the human body works across <strong>multiple systems</strong>.
-      </p>
-      <p>
-        We are currently developing an expanded visual style and more immersive environments to make each “world inside the body” 
-        dynamic, colourful and scientifically meaningful. Future modules will allow players to <strong>follow oxygen molecules as they 
-        travel through the circulatory system</strong>, understand how <strong>wounds are repaired by platelets</strong>, see how <strong>immune 
-        cells respond to infection</strong>, or experience how <strong>insulin regulates blood glucose </strong>in conditions such as diabetes.
-      </p>
-      <p>
-        Each new world will build on the same core principles that shaped the original concept: clear science, interactive learning and a sense of agency.
-      </p>
-      <p>
-        By transforming complex physiology into playful, explorable environments, CellCrush aims to support patients in <strong>understanding their health</strong>, 
-        while providing <strong>engaging educational tools</strong> for families, students, and curious learners.
-      </p>
-      <p>
-        Our long-term vision is to create the <strong>first VR patient-education ecosystem</strong> where every major body system becomes a world to explore, 
-        compare and understand. As we expand, we aim to collaborate with professionals to ensure scientific accuracy, clinical relevance and meaningful real-world impact.
-      </p>
-      <p>
-        CellCrush is not just a game; it is the foundation of a future in which health literacy is immersive, accessible and empowering for everyone.
-      </p>
-    </section>
-
-
-    <section class="card" id="collaboration">
-      <h2>Interested in collaborating?</h2>
-      <p>
-        <strong>Katarzyna Olszyńska</strong> is an associate researcher at the Otto-von-Guericke, University Magdeburg, Germany. Her work involves mixed reality and human robotic interaction in the medical field.
-      </p>
-      <p>
-        <strong>Email:</strong> k.olszynska@gmail.com
-      </p>
-      <p>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/katarzyna-olszynska/">linkedin.com/in/katarzyna-olszynska</a>
-      </p>
-      <p>
-        <strong>Ana Sofia Santos</strong> is an associate researcher at the Institute for Artificial Intelligence in Medicine, University Hospital Essen, Germany. Her work involves development of XR applications for medical education.
-      </p>
-      <p>
-        <strong>Email:</strong> anasfsantos1203@gmail.com
-      </p>
-      <p>
-        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ana-sofiafsantos">linkedin.com/in/ana-sofiafsantos</a>
-      </p>
-    </section>
   </div>
+
+  <!-- BUTTONS BELOW (scroll down to see them) -->
+  <div class="buttons">
+    <a class="btn" href="about.html">About us</a>
+    <a class="btn" href="cellcrush.html">CellCrush</a>
+    <a class="btn" href="contacts.html">Contacts</a>
+  </div>
+
 </body>
 </html>
