@@ -6,183 +6,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
-    body {
+    :root {
+      --primary-bg: #0b2d3a;
+      --button-bg: #205673;
+      --button-bg-hover: #163d52;
+      --button-text: #ffffff;
+      --button-radius: 22px;
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--primary-bg);
       color: #ffffff;
-      background: #0b2d3a;
-      overflow-x: hidden;
+    }
+
+    /* Wrap everything so we can control full-height layout if needed */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* HERO SECTION */
     .hero {
       width: 100%;
-      min-height: 100vh;
-      background-image: url("static/background.png");
+      /* big background image */
+      background-image: url("images/background.png");
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       background-attachment: fixed;
 
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 40px 20px;
     }
 
-    .hero h1 {
-      font-size: 2.8rem;
+    .hero-inner {
+      max-width: var(--max-width);
+      padding: 120px 24px 80px;
+    }
+
+    .hero-title {
+      /* clamp(min, preferred, max) for fluid sizing */
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700;
-      margin-bottom: 12px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
     }
 
-    .hero h2 {
-      font-size: 1.3rem;
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.4vw, 1.3rem);
       font-weight: 300;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
     }
 
-    /* BUTTON SECTION (desktop / default) */
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      padding: 30px 20px 60px;
+    /* BUTTON SECTION */
+    .buttons-section {
       background: #ffffff;
+      padding: 28px 16px 40px;
+    }
+
+    .buttons-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .btn {
-      background: #205673;
-      color: white;
-      padding: 24px 48px;
-      border-radius: 30px;
-      font-size: 1.4rem;
-      font-weight: 600;
+      background: var(--button-bg);
+      color: var(--button-text);
+      padding: 14px 32px;
+      border-radius: var(--button-radius);
+      font-size: 1.05rem;
       text-decoration: none;
-      display: inline-block;
-      transition: 0.2s;
-      min-width: 220px;
-      text-align: center;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 160px;
+      transition: background 0.2s, transform 0.1s;
     }
 
     .btn:hover {
-      background: #163d52;
+      background: var(--button-bg-hover);
+      transform: translateY(-1px);
     }
 
-    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    .btn:active {
+      transform: translateY(0);
+    }
 
-    /* Tablets (768px–991px) */
-    @media screen and (min-width: 768px) and (max-width: 991px) {
-      .hero {
-        min-height: 80vh;
-        padding: 60px 24px 40px;
-        background-attachment: scroll; /* smoother on mobile/tablets */
-      }
+    /* ----------------------------- */
+    /* RESPONSIVE TWEAKS            */
+    /* ----------------------------- */
 
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero h2 {
-        font-size: 1.1rem;
-      }
-
-      .buttons {
-        gap: 30px;
-        padding: 30px 20px 50px;
-      }
-
-      .btn {
-        font-size: 1.2rem;
-        padding: 20px 36px;
-        min-width: 200px;
+    /* Tablets & small laptops */
+    @media (max-width: 900px) {
+      .hero-inner {
+        padding: 100px 20px 60px;
       }
     }
 
-    /* Large phones / small tablets (481px–767px) */
-    @media screen and (min-width: 481px) and (max-width: 767px) {
+    /* Phones */
+    @media (max-width: 600px) {
       .hero {
-        min-height: 70vh;
-        padding: 60px 16px 30px;
+        /* fixed backgrounds are glitchy on iOS, so relax it here */
         background-attachment: scroll;
       }
 
-      .hero h1 {
-        font-size: 2rem;
+      .hero-inner {
+        padding: 80px 16px 50px;
       }
 
-      .hero h2 {
-        font-size: 1rem;
-        margin-bottom: 24px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        gap: 18px;
-        padding: 24px 16px 40px;
-        align-items: center;
+      .buttons-section {
+        padding: 24px 12px 32px;
       }
 
       .btn {
-        width: 100%;
-        max-width: 360px;
-        padding: 18px 22px;
-        font-size: 1.1rem;
-      }
-    }
-
-    /* Small phones (320px–480px) */
-    @media screen and (min-width: 320px) and (max-width: 480px) {
-      .hero {
-        min-height: 65vh;
-        padding: 50px 14px 24px;
-        background-attachment: scroll;
-      }
-
-      .hero h1 {
-        font-size: 1.7rem;
-      }
-
-      .hero h2 {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-      }
-
-      .buttons {
-        flex-direction: column;
-        gap: 16px;
-        padding: 20px 14px 32px;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
+        width: 100%;       /* buttons full-width for easy tapping */
         max-width: 320px;
-        padding: 14px 18px;
-        font-size: 1rem;
-        min-width: 0; /* let it shrink on tiny screens */
       }
     }
-
   </style>
 </head>
 
 <body>
+  <div class="page">
 
-  <!-- HERO HEADER -->
-  <div class="hero">
-    
+    <!-- HERO HEADER -->
+    <section class="hero">
+      <div class="hero-inner">
+        </div>
+      </div>
+    </section>
+
+    <!-- BUTTONS BELOW (scroll if needed) -->
+    <section class="buttons-section">
+      <div class="buttons-inner">
+        <a class="btn" href="about.html">About us</a>
+        <a class="btn" href="cellcrush.html">CellCrush</a>
+        <a class="btn" href="contacts.html">Contacts</a>
+      </div>
+    </section>
+
   </div>
-
-  <!-- BUTTONS BELOW (scroll down to see them) -->
-  <div class="buttons">
-    <a class="btn" href="about.html">About us</a>
-    <a class="btn" href="cellcrush.html">CellCrush</a>
-    <a class="btn" href="contacts.html">Contacts</a>
-  </div>
-
 </body>
 </html>
