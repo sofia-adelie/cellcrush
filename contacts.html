@@ -20,12 +20,12 @@
         sans-serif;
     }
 
-    /* DESKTOP / DEFAULT BACKGROUND */
+    /* DESKTOP */
     body {
       margin: 0;
       min-height: 100vh;
       color: var(--text-main);
-      background-image: url("images/contacts.png");
+      background-image: url("backImage.png");
       background-size: cover;
       background-position: center top;
       background-attachment: fixed;
@@ -34,7 +34,7 @@
     .container {
       max-width: 1000px;
       width: 100%;
-      padding: 180px 20px 40px;
+      padding: 100px 20px 40px;
       margin: 0 auto;
     }
 
@@ -50,8 +50,7 @@
       max-width: 850px;
       width: 100%;
     }
-
-    /* second card: image on the right */
+    
     .card:nth-child(2) {
       flex-direction: row-reverse;
     }
@@ -110,6 +109,18 @@
       background: #163d52;
     }
 
+    .page-title {
+      color: rgb(255, 255, 255);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0 0 30px 0;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 5px;
+    }
+
     /* TABLETS */
     @media (max-width: 900px) {
       body {
@@ -131,20 +142,20 @@
       }
     }
 
-    /* PHONES – dedicated mobile background, scrollable content */
+    /* PHONES*/
     @media (max-width: 600px) {
       html {
         height: 100%;
-        background-image: url("images/contacts-mobile.png");
+        background-image: url("backImage.png");
         background-size: cover;
         background-position: center top;
-        background-attachment: fixed; /* background stays still */
+        background-attachment: fixed; 
       }
 
       body {
         min-height: 100%;
-        background: transparent;      /* show html background */
-        overflow-y: auto;             /* content scrolls */
+        background: transparent;     
+        overflow-y: auto;           
       }
 
       .container {
@@ -176,8 +187,7 @@
 </head>
 <body>
   <div class="container">
-
-    <!-- Katarzyna -->
+    <h1 class="page-title">CONTACTS FOR COLLABORATION</h1>
     <div class="card">
       <div class="avatar">
         <img src="images/kasia.png">
@@ -201,8 +211,6 @@
         </p>
       </div>
     </div>
-
-    <!-- Ana -->
     <div class="card">
       <div class="avatar">
         <img src="images/ana.png">
@@ -225,7 +233,6 @@
         </p>
       </div>
     </div>
-
     <div class="button-row">
       <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
