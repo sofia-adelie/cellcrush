@@ -21,41 +21,45 @@
         sans-serif;
     }
 
-    /* DESKTOP / DEFAULT BACKGROUND */
+    /* BACKGROUND like about.html */
     body {
-      min-height: 100vh;
       margin: 0;
-      padding: 32px 16px 40px;
-      display: flex;
-      justify-content: center;
-      color: var(--text-main);
-
-      background-image: url("images/cellcrush.png");
+      min-height: 100vh;
+      background-image: url("images/backImage.png");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      color: var(--text-main);
     }
 
-    .page {
+    /* NEW: same wrapper as About page */
+    .container {
+      max-width: 1000px;
       width: 100%;
-      max-width: var(--max-width);
-      margin-top: 150px;
+      margin: 0 auto;
+      padding: 100px 20px 40px;
     }
 
-    .header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 12px;
-      margin-top: 50px;
-      text-align: center;
-      text-shadow: 0 0 6px rgb(255, 255, 255);
+    .page-title {
+      color: white;
+      font-size: 3rem;
+      font-weight: 700;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 30px;
+      padding-left: 5px;
+      text-transform: uppercase;
     }
 
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       padding: 22px 22px 20px;
-      margin-bottom: 20px;
+      margin: 0 auto 32px;
       box-shadow: 0 14px 35px rgba(255, 254, 254, 0.65);
+      max-width: 850px;
+      width: 100%;
       text-align: justify;
     }
 
@@ -82,9 +86,10 @@
       margin-bottom: 4px;
     }
 
+    /* DEMO THUMBNAIL */
     .demo-thumb {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: 0;
       border-radius: 20px;
       overflow: hidden;
       text-decoration: none;
@@ -107,43 +112,12 @@
       width: 40%;
       max-width: 220px;
       border-radius: 16px;
-      display: block;
       object-fit: cover;
     }
 
     .demo-text-main {
       font-weight: 600;
       font-size: 0.96rem;
-      text-align: left;
-    }
-
-    .demo-text-sub {
-      font-size: 0.84rem;
-      color: #555;
-      margin-top: 2px;
-    }
-
-    .qr-wrapper {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .qr-wrapper img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 18px;
-      background: #fff;
-      padding: 6px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .small-label {
-      font-size: 0.8rem;
-      color: #444;
     }
 
     .button-row {
@@ -165,58 +139,74 @@
       margin: 20px 0 40px;
     }
 
-    /* TABLETS */
+    .back-btn:hover {
+      background: #163d52;
+    }
+
+    /* RESPONSIVE BEHAVIOR */
     @media (max-width: 900px) {
       body {
         background-attachment: scroll;
       }
 
-      .page {
-        margin-top: 120px;
+      .container {
+        padding: 120px 16px 32px;
       }
     }
 
-    /* PHONES – dedicated mobile background, scrollable content */
     @media (max-width: 600px) {
       html {
         height: 100%;
-        background-image: url("images/cellcrush-mobile.png");
+        background-image: url("images/backImage.png");
         background-size: cover;
         background-position: center top;
-        background-attachment: fixed; /* background stays still */
+        background-attachment: fixed;
       }
 
       body {
-        min-height: 100%;
-        padding: 20px 12px 28px;
-        background: transparent;      /* show html background */
-        overflow-y: auto;             /* content scrolls */
+        background: transparent;
+        height: 100%;
+        overflow-y: auto;
       }
 
-      .page {
-        margin-top: 110px;
+      .container {
+        padding: 110px 12px 24px;
       }
 
       .card {
         padding: 18px 16px 16px;
-        border-radius: 22px;
+      }
+
+      .card h2 {
+        margin-bottom: 8px;
       }
 
       .demo-inner {
         padding: 10px 12px;
-        flex-direction: row;
       }
 
       .demo-image {
         width: 45%;
+      }
+
+      .button-row {
+        justify-content: center;
+      }
+
+      .back-btn {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
+  <div class="container">
+    <h1 class="page-title">CELLCRUSH</h1>
 
+    <!-- Concept card -->
     <section class="card" id="concept">
       <h2>💡 The concept of CellCrush</h2>
       <p>
@@ -226,13 +216,15 @@
         XR technologies are transforming how medical professionals learn and train, however, patients are still left with
         pamphlets and explanations that feel abstract, overwhelming, or frightening. We wanted to change that.
       </p>
+
       <p>
-        CellCrush began as an experiment in creating a VR experience for people facing complex diseases. The idea was simple:
+        CellCrush began as an experiment in creating a VR experience for people facing complex diseases:
       </p>
+
       <ul>
         <li>What if patients could see what is happening inside their bodies?</li>
         <li>What if they could feel like they were actively fighting back?</li>
-        <li>What if education could be playful, visual, and empowering instead of stressful?</li>
+        <li>What if education could be playful, visual, and empowering?</li>
       </ul>
       <p>
         The result was a game where players <strong>explore a stylised bloodstream, battle harmful cells and learn how
@@ -246,23 +238,22 @@
       </p>
     </section>
 
+    <!-- Demo card -->
     <section class="card" id="demo">
       <h2>🎮 Take a look into CellCrush</h2>
       <p>
-        See CellCrush in action with a short gameplay walkthrough. This video shows how users can
-        move through the bloodstream, interact with cells and experience biology from a first-person
-        perspective.
+        See CellCrush in action with a short gameplay walkthrough.
       </p>
 
-      <a class="demo-thumb" href="https://www.youtube.com/watch?v=-bvmzzahSLI" target="_blank"
-         rel="noopener noreferrer">
+      <a class="demo-thumb" href="https://www.youtube.com/watch?v=-bvmzzahSLI" target="_blank">
         <div class="demo-inner">
-          <img src="images/thumbnail.png" alt="CellCrush gameplay thumbnail" class="demo-image" />
+          <img src="images/thumbnail.png" class="demo-image" alt="Demo thumbnail" />
           <div class="demo-text-main">Watch the CellCrush demo on YouTube</div>
         </div>
       </a>
     </section>
 
+    <!-- Future vision card -->
     <section class="card" id="mission">
       <h2>🚀 Scalability &amp; Vision for the Future</h2>
       <p>
@@ -297,10 +288,10 @@
       </p>
     </section>
 
+    <!-- Back button -->
     <div class="button-row">
       <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
-
   </div>
 </body>
 </html>
