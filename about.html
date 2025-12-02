@@ -20,25 +20,14 @@
         sans-serif;
     }
 
-    /* ---------------- BACKGROUND LAYER ---------------- */
-
     body {
       margin: 0;
       min-height: 100vh;
-      color: var(--text-main);
-      background: #000; /* fallback behind image */
-    }
-
-    .bg-image {
-      position: fixed;
-      inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
       background-image: url("images/aboutus.png");
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;                 /* sit behind all content */
-      pointer-events: none;        /* clicks go through */
-      will-change: transform;      /* smoother on mobile */
+      background-attachment: fixed;
+      color: var(--text-main);
     }
 
     .container {
@@ -141,6 +130,10 @@
 
     /* Tablets / small laptops */
     @media (max-width: 900px) {
+      body {
+        background-attachment: scroll; /* smoother on mobile browsers */
+      }
+
       .container {
         padding: 140px 16px 32px;
       }
@@ -159,10 +152,20 @@
 
     /* Phones */
     @media (max-width: 600px) {
-      .bg-image {
-        background-position: top center; /* show more of top area on tall screens */
+      html {
+        height: 100%;
+        background-image: url("images/Imagens_Tese.png");
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed; /* background stays still */
       }
 
+      body {
+        height: 100%;
+        overflow-y: auto;      /* content scrolls */
+        background: transparent;
+      }
+    
       .container {
         padding: 110px 12px 24px;
       }
@@ -193,12 +196,7 @@
     }
   </style>
 </head>
-
 <body>
-  <!-- Static background layer -->
-  <div class="bg-image"></div>
-
-  <!-- Scrollable content -->
   <div class="container">
     <div class="intro">
       <div class="info">
@@ -207,7 +205,7 @@
           We first began working together during a hackathon, where we quickly realized how naturally our skills 
           and approaches complemented one another. What started as a short collaboration turned into a shared 
           vision: using VR technologies to make medical concepts more intuitive, visual and emotionally engaging. 
-          <br><br>
+          <br>
           Although we come from different labs in Germany, our backgrounds in computer science, mixed reality, 
           medical applications and human–robot interaction give us a strong foundation for building experiences 
           that go far beyond our individual research topics. Together, we explore new ways to teach, communicate 
@@ -263,7 +261,8 @@
         <h3>Collaborative Work</h3>
         <p>
           We are currently collaborating on research-driven VR projects such as <strong>CellCrush</strong>. 
-          Our goal is to design serious games that are scientifically grounded, emotionally engaging
+          Our goal is to
+          design serious games that are scientifically grounded, emotionally engaging
           and accessible to both healthcare professionals and patients.
         </p>
         <p>
