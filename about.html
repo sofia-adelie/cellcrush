@@ -20,13 +20,17 @@
         sans-serif;
     }
 
+    /* -----------------------------------------------------
+       BACKGROUND – now fully responsive on all devices
+    ------------------------------------------------------*/
     body {
       margin: 0;
       min-height: 100vh;
-      background-image: url("images/aboutus.png");
+      background-image: url("aboutus.png");
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-attachment: scroll; /* mobile-friendly */
       color: var(--text-main);
     }
 
@@ -130,10 +134,6 @@
 
     /* Tablets / small laptops */
     @media (max-width: 900px) {
-      body {
-        background-attachment: scroll; /* smoother on mobile browsers */
-      }
-
       .container {
         padding: 140px 16px 32px;
       }
@@ -152,20 +152,14 @@
 
     /* Phones */
     @media (max-width: 600px) {
-      html {
-        height: 100%;
-        background-image: url("images/aboutus-mobile.png");
+      body {
+        background-image: url("images/aboutus.png"); /* optional: replace with a mobile image */
         background-size: cover;
-        background-position: center top;
-        background-attachment: fixed; /* background stays still */
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
       }
 
-      body {
-        height: 100%;
-        overflow-y: auto;      /* content scrolls */
-        background: transparent;
-      }
-    
       .container {
         padding: 110px 12px 24px;
       }
@@ -196,6 +190,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="intro">
@@ -205,7 +200,7 @@
           We first began working together during a hackathon, where we quickly realized how naturally our skills 
           and approaches complemented one another. What started as a short collaboration turned into a shared 
           vision: using VR technologies to make medical concepts more intuitive, visual and emotionally engaging. 
-          <br>
+          <br><br>
           Although we come from different labs in Germany, our backgrounds in computer science, mixed reality, 
           medical applications and human–robot interaction give us a strong foundation for building experiences 
           that go far beyond our individual research topics. Together, we explore new ways to teach, communicate 
@@ -261,8 +256,7 @@
         <h3>Collaborative Work</h3>
         <p>
           We are currently collaborating on research-driven VR projects such as <strong>CellCrush</strong>. 
-          Our goal is to
-          design serious games that are scientifically grounded, emotionally engaging
+          Our goal is to design serious games that are scientifically grounded, emotionally engaging
           and accessible to both healthcare professionals and patients.
         </p>
         <p>
