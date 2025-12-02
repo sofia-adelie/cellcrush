@@ -20,18 +20,25 @@
         sans-serif;
     }
 
-    /* -----------------------------------------------------
-       BACKGROUND – now fully responsive on all devices
-    ------------------------------------------------------*/
+    /* ---------------- BACKGROUND LAYER ---------------- */
+
     body {
       margin: 0;
       min-height: 100vh;
+      color: var(--text-main);
+      background: #000; /* fallback behind image */
+    }
+
+    .bg-image {
+      position: fixed;
+      inset: 0;                    /* top:0; right:0; bottom:0; left:0 */
       background-image: url("images/aboutus.png");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: scroll; /* mobile-friendly */
-      color: var(--text-main);
+      z-index: -1;                 /* sit behind all content */
+      pointer-events: none;        /* clicks go through */
+      will-change: transform;      /* smoother on mobile */
     }
 
     .container {
@@ -152,12 +159,8 @@
 
     /* Phones */
     @media (max-width: 600px) {
-      body {
-        background-image: url("images/aboutus-mobile.png"); /* optional: replace with a mobile image */
-        background-size: cover;
-        background-position: top center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
+      .bg-image {
+        background-position: top center; /* show more of top area on tall screens */
       }
 
       .container {
@@ -192,6 +195,10 @@
 </head>
 
 <body>
+  <!-- Static background layer -->
+  <div class="bg-image"></div>
+
+  <!-- Scrollable content -->
   <div class="container">
     <div class="intro">
       <div class="info">
